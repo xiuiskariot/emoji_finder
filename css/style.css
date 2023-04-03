@@ -15,7 +15,6 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 h1 { 
@@ -49,6 +48,7 @@ input {
   font-size: 24px;
   line-height: 21px;
   color: #ABB5BE;
+  margin-bottom: 48px;
 }
 
 input:focus {
@@ -57,4 +57,59 @@ input:focus {
   border-color: #bdbdbd;
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.25);
+}
+
+main {
+  background: #EDEEF3;
+}
+
+.container {
+  width: 986px;
+  padding: 80px 0 49px;
+  margin: 0 auto;
+  border-bottom: 1px solid #CED4DA;
+  
+}
+
+.emoji_card {
+  height: 184px;
+  width: 316px;
+  background: #FFFFFF;
+  border: 1px solid #DEE2E6;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-between;
+  padding: 24px;
+}
+
+.emoji {
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 48px;
+  margin-bottom: 18px;
+}
+
+.emoji_name {
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 28px;
+  text-decoration: underline;
+  color: #000000;
+  margin-bottom: 12px;
+}
+
+.emoji_keyworsds {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #3F444A
+}
+
+footer {
+  background: #EDEEF3;
+  padding: 13px 0 17px;
+  color: #6C757D;
+  text-align: center;
 }
