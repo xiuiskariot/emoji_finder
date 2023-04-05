@@ -70,31 +70,29 @@ main {
   width: 986px;
   padding: 80px 0 49px;
   margin: 0 auto;
-  height: 100vh;
-  
+
 }
 
 .emoji_card {
-  height: 184px;
-  width: 316px;
+  /* height: 184px;
+  width: 316px; */
   background: #FFFFFF;
   border: 1px solid #DEE2E6;
   border-radius: 4px;
   display: flex;
   flex-direction: column;
   text-align: center;
-  justify-content: space-between;
   padding: 24px;
 }
 
-.emoji {
+.symbol {
   font-weight: 400;
   font-size: 48px;
   line-height: 48px;
   margin-bottom: 18px;
 }
 
-.emoji_name {
+.title {
   font-weight: 700;
   font-size: 17px;
   line-height: 28px;
@@ -103,7 +101,7 @@ main {
   margin-bottom: 12px;
 }
 
-.emoji_keyworsds {
+.keyworsds {
   font-weight: 400;
   font-size: 12px;
   line-height: 15px;
@@ -129,3 +127,8 @@ footer {
   margin-right: auto;
 }
 
+.grid {
+    display: grid;
+    gap: 22px 19px;
+    grid-template-columns: 1fr 1fr 1fr
+}
