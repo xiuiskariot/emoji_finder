@@ -5,6 +5,8 @@ import { data } from "./emoji.js"
 const unicData = getUnicData(data);
 const grid = document.querySelector(".grid")
 
+const input = document.querySelector("input")
+
 
 function getUnicData(data) {
   const unicData = [];
@@ -37,9 +39,15 @@ function createCard(obj) {
   card.append(symbol, title, keywords);
   
   return card;
-  
 }
 
+function search(e) {
+  let value = e.target.value;
+  grid.innerHTML = "";
+  unicData.filter((card) => card.title.toLowerCase().includes(value)).forEach((card) => grid.append(createCard(card)))
+}
+
+input.addEventListener("input", search)
 
 
 
