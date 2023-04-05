@@ -1,13 +1,10 @@
-import { data } from "./emoji.js"
-
-
+import { data } from "./emoji.js";
 
 const unicData = getUnicData(data);
-const grid = document.querySelector(".grid")
+const grid = document.querySelector(".grid");
+const input = document.querySelector("input");
 
-const input = document.querySelector("input")
-
-
+//Принимает массив объектов data, чтобы собрать новый массив, в котором раздел keywords каждого объекта состоит из уникальных слов
 function getUnicData(data) {
   const unicData = [];
   data.forEach((card) => {
@@ -19,10 +16,10 @@ function getUnicData(data) {
   return unicData;
 }
 
-
+//Создает одну карточку по данным из одного объекта
 function createCard(obj) {
   let card = document.createElement("div");
-  card.classList.add("emoji_card")
+  card.classList.add("emoji_card");
 
   let symbol = document.createElement("p");
   symbol.classList.add("symbol");
@@ -37,18 +34,30 @@ function createCard(obj) {
   keywords.textContent = obj.keywords;
 
   card.append(symbol, title, keywords);
-  
+
   return card;
 }
 
+//Отфильтровывает карточки по словам введеным в input, фильтр по словам в title и keywords
 function search(e) {
-  let value = e.target.value;
-  grid.innerHTML = "";
-  unicData.filter((card) => card.title.toLowerCase().includes(value)).forEach((card) => grid.append(createCard(card)))
+  let value = e.target.value.toLowerCase().trim();
+  grid.innerHTML = ""; //очищает контейнер от карточек, которые не прошли фильтр
+  let filtred = unicData.filter(
+    (card) =>
+      card.title.toLowerCase().includes(value) ||
+      card.keywords.toLowerCase().includes(value)
+  );
+  printCards(filtred); //рисует отфильтрованные карточки 
 }
 
-input.addEventListener("input", search)
+//Отрисовывает все карточки 
+function printCards(array) {
+  array.forEach((card) => grid.append(createCard(card)));
+}
 
+//Самовызывающася функция, которая отрисовывает все карточки из массива unicData
+(function main() {
+  printCards(unicData);
+})();
 
-
-unicData.forEach((card) => grid.append(createCard(card)));
+input.addEventListener("input", search);
