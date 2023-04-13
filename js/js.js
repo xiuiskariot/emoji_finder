@@ -1,8 +1,19 @@
-import { data } from "./emoji.js";
+// import { data } from "./emoji.js";
+const API_URL = "https://emoji.ymatuhin.workers.dev/"; //получаем объект с данными с сервера, а не из файлика 
+async function fetchData(url) {
+  let response = await fetch(url);
+  return response.json();
+}
+
+let data = await fetchData(API_URL);
+
+
 
 const unicData = getUnicData(data);
 const grid = document.querySelector(".grid");
 const input = document.querySelector("input");
+
+
 
 //Принимает массив объектов data, чтобы собрать новый массив, в котором раздел keywords каждого объекта состоит из уникальных слов
 function getUnicData(data) {
